@@ -13,7 +13,7 @@
             integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
             crossorigin="anonymous"></script>
     <meta charset="UTF-8">
-    <title>HomePage</title>
+    <title>{{blog.title}}</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -28,7 +28,7 @@
                 <a class="nav-link" href="https://github.com/SldinkarGECA">Github </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% static 'resume.pdf'%}">Resume</a>
+                <a class="nav-link" href="{% static 'resume.pdf' %}">Resume</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'allblogs' %}">Blogs</a>
@@ -37,33 +37,20 @@
     </div>
 </nav>
 <div class="jumbotron text-center">
-    <img src="{% static 'pic.png' %}" class="card-img-top" alt="..." style="height:400px;width:400px;border-radius:50%">
-    <h1 class="display-4">Hi!, I am Sandesh.</h1>
-    <h3 class="display-4">About me:</h3>
-    <p class="lead">
-    <h5>College: GEC, Aurangabad.</h5>
-    <h5>Current Year: Second.</h5>
-    <h5>Branch: IT.</h5>
-    <h5>Hometown: Shahapur.</h5>
-    <h5>Current city: Aurangabad.</h5>
-    </p>
-    <hr class="my-4">
-    <a class="btn btn-primary btn-lg" href="mailto:sldinkar@gmail.com" role="button">Contact Me!</a>
+    <h1 class="display-4">{{blog.title}}</h1>
 </div>
 
-<div class="row">
-    {% for job in jobs.all%}
-    <br><br>
-    <div class="col-sm-4">
-        <div class="card">
-            <div class="card-body">
-                <img src="{{ job.image.url }}" class="card-img-top" alt="...">
-                <p class="card-text">{{job.summary}}</p>
-            </div>
+
+<div class="col-sm-12 center">
+    <div class="card">
+        <div class="card-body">
+            <h6>{{blog.pub_date}}</h6>
+            <img src="{{ blog.image.url }}" class="card-img-top" alt="...">
+            <p class="card-text">{{blog.body}}</p>
         </div>
-        <br><br>
     </div>
-    {% endfor %}
+    <br><br>
+</div>
 
 </div>
 
