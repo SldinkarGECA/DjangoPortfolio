@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>HomePage</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Sandesh Dinkar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav  ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Github </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Resume</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Blogs</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="jumbotron text-center">
+    <h1 class="display-4">Hi!, I am Sandesh.</h1>
+    <h3 class="display-4">About me:</h3>
+    <p class="lead">
+    <h5>College: GEC, Aurangabad.</h5>
+    <h5>Current Year: Second.</h5>
+    <h5>Branch: IT.</h5>
+    <h5>Hometown: Shahapur.</h5>
+    <h5>Current city: Aurangabad.</h5>
+    </p>
+    <hr class="my-4">
+    <a class="btn btn-primary btn-lg" href="mailto:sldinkar@gmail.com" role="button">Contact Me!</a>
+</div>
+
+<div class="row">
+    {% for job in jobs.all%}
+    <br><br>
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-body">
+                <img src="{{ job.image.url }}" class="card-img-top" alt="...">
+                <p class="card-text">{{job.summary}}</p>
+            </div>
+        </div>
+        <br><br>
+        {%endfor %}
+    </div>
+</div>
+
+<div class="footer footer-dark bg-light" id="footer">
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s6">
+                    <h5 class="white-text">Sandesh Dinkar</h5>
+                    <p class="grey-text text-lighten-4">An IT Engineer Student at GECA.</p>
+                </div>
+                <div class="col l4 offset-l2 s6">
+                    <h5 class="white-text">Contact Me</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="https://www.facebook.com/sandesh.5657"><i
+                                class="fa  fa-facebook"></i>&nbsp;&nbsp;&nbsp;&nbsp;Facebook</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#"><i
+                                class="fa  fa-twitter"></i>&nbsp;&nbsp;&nbsp;&nbsp;Twitter</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://www.instagram.com/sldinkar_"><i
+                                class="fa  fa-instagram"></i>&nbsp;&nbsp;&nbsp;&nbsp;Instagram</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://github.com/SldinkarGECA"><i
+                                class="fa  fa-github"></i>&nbsp;&nbsp;&nbsp;&nbsp;Github</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container center">
+                © All rights reserved {% now "Y" %}.
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
